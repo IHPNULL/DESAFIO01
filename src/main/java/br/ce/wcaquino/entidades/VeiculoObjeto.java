@@ -6,16 +6,16 @@ public class VeiculoObjeto {
 	private String Modelo;
 	private String Placa;
 	private String Cor;
-	private Float Km;
-	private Boolean isLigado;
+	private float Km;
+	private boolean isLigado;
 	private int litrosCombustivel;
 	private int Velocidade;
-	private Double Preco;
+	private double Preco;
 
 	// Metodos especiais
 
-	public VeiculoObjeto(String Marca, String Modelo, String Placa, String Cor, Float Km, Boolean isLigado,
-			Integer litrosCombustivel, Integer Velocidade, double i) {
+	public VeiculoObjeto(String Marca, String Modelo, String Placa, String Cor, float Km, boolean isLigado,
+			int litrosCombustivel, int Velocidade, double i) {
 
 		this.setMarca(Marca);
 		this.setModelo(Modelo);
@@ -56,7 +56,7 @@ public class VeiculoObjeto {
 		Placa = placa;
 	}
 
-	public String getCor(String cor) {
+	public String getCor() {
 		return Cor;
 	}
 
@@ -64,43 +64,43 @@ public class VeiculoObjeto {
 		Cor = cor;
 	}
 
-	public Float getKm() {
+	public float getKm() {
 		return Km;
 	}
 
-	public void setKm(Float km) {
+	public void setKm(float km) {
 		Km = km;
 	}
 
-	public Boolean getIsLigado() {
+	public boolean getIsLigado() {
 		return isLigado;
 	}
 
-	public void setisLigado(Boolean isLigado) {
+	public void setisLigado(boolean isLigado) {
 		this.isLigado = isLigado;
 	}
 
-	public Integer getLitrosCombustivel() {
+	public int getLitrosCombustivel() {
 		return litrosCombustivel;
 	}
 
-	public void setLitrosCombustivel(Integer litrosCombustivel) {
+	public void setLitrosCombustivel(int litrosCombustivel) {
 		this.litrosCombustivel = litrosCombustivel;
 	}
 
-	public Integer getVelocidade() {
+	public int getVelocidade() {
 		return Velocidade;
 	}
 
-	public void setVelocidade(Integer velocidade) {
+	public void setVelocidade(int velocidade) {
 		Velocidade = velocidade;
 	}
 
-	public Double getPreco() {
+	public double getPreco() {
 		return Preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(double preco) {
 		Preco = preco;
 	}
 

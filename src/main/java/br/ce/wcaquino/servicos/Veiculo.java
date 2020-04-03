@@ -8,7 +8,11 @@ import br.ce.wcaquino.utils.Metodos;
 public class Veiculo {
 
 	public static void main(String[] args) {
-		Scanner leitor = new Scanner(System.in);
+	}
+	/*
+		 * 
+		 * 
+		 * Scanner leitor = new Scanner(System.in);
 
 		int op = 7, qtdgas = 0;
 
@@ -85,9 +89,7 @@ public class Veiculo {
 		} while (op != 0);
 		leitor.close();
 
-	}
 
-	/*
 	 * public static void main(String[] args) {
 	 * 
 	 * VeiculoObjeto veiculo = new VeiculoObjeto(null,null,null, null, null, null,

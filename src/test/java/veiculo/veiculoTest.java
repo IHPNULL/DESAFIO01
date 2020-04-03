@@ -1,8 +1,11 @@
 package veiculo;
 
+import static br.ce.wcaquino.utils.Metodos.Abastecer;
 import static br.ce.wcaquino.utils.Metodos.Acelerar;
 import static br.ce.wcaquino.utils.Metodos.Desligar;
+import static br.ce.wcaquino.utils.Metodos.Frear;
 import static br.ce.wcaquino.utils.Metodos.Ligar;
+import static br.ce.wcaquino.utils.Metodos.Pintar;
 import static br.ce.wcaquino.utils.Metodos.estadoAtual;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
@@ -16,7 +19,6 @@ import org.junit.Test;
 import br.ce.wcaquino.Exceptions.DeveAcelerarException;
 import br.ce.wcaquino.Exceptions.DeveLigarException;
 import br.ce.wcaquino.entidades.VeiculoObjeto;
-import br.ce.wcaquino.utils.Metodos;
 
 public class veiculoTest {
 
@@ -30,7 +32,7 @@ public class veiculoTest {
 	@Test
 	public void DeveLigarTeste() throws DeveLigarException {
 
-		Metodos.Ligar(v);
+		Ligar(v);
 
 		assertTrue(v.getIsLigado());
 	}
@@ -38,7 +40,7 @@ public class veiculoTest {
 	@Test
 	public void DeveDesligarTeste() throws Exception {
 
-		Metodos.Desligar(v);
+		Desligar(v);
 
 		assertFalse(v.getIsLigado());
 	}
@@ -47,9 +49,9 @@ public class veiculoTest {
 	public void DeveAcelerarTeste() throws DeveAcelerarException {
 
 		int v1 = 20;
-		
-		Metodos.Abastecer(20, v);
-		Metodos.Ligar(v);
+
+		Abastecer(20, v);
+		Ligar(v);
 
 		try {
 			Acelerar(10, v);
@@ -75,37 +77,67 @@ public class veiculoTest {
 
 	@Test
 	public void NaoDeveDesligarEmMovimentoTeste() throws Exception {
-		
-		Metodos.Abastecer(20, v);
-		Metodos.estadoAtual(v);
+
+		Abastecer(20, v);
+		// estadoAtual(v);
 		Ligar(v);
-		Acelerar(10,v);
+		Acelerar(10, v);
 
 		try {
-			estadoAtual(v);
+			// estadoAtual(v);
 			Desligar(v);
 			fail();
 		} catch (Throwable e) {
-			estadoAtual(v);
+			// estadoAtual(v);
 			assertThat(v.getIsLigado(), is(true));
 		}
 	}
-	
+
 	@Test
 	public void NaoDeveAcelerarSemGasosaTeste() throws Exception {
-		
+
 		Ligar(v);
-		Metodos.estadoAtual(v);
+		// estadoAtual(v);
 
 		try {
-			estadoAtual(v);
-			Acelerar(10,v);
+			// estadoAtual(v);
+			Acelerar(10, v);
 			fail();
 		} catch (Throwable e) {
-			estadoAtual(v);
+			// estadoAtual(v);
 			assertThat(v.getVelocidade(), is(0));
 		}
 	}
-	
+
+	@Test
+	public void NaodeveFrearParadoTeste() throws Exception {
+
+		int v1 = v.getVelocidade();
+		Ligar(v);
+
+		estadoAtual(v);
+
+		try {
+			// estadoAtual(v);
+			Frear(v);
+			fail();
+		} catch (Throwable e) {
+			// estadoAtual(v);
+			assertThat(v.getVelocidade(), is(v1));
+		}
+	}
+
+	@Test
+	public void PintarTeste() throws Exception {
+
+		try {
+			// estadoAtual(v);
+			Pintar("Preto", v);
+			fail();
+		} catch (Throwable e) {
+			// estadoAtual(v);
+			assertThat(v.getCor(), is("Preto"));
+		}
+	}
 
 }
